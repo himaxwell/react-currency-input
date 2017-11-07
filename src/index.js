@@ -122,7 +122,7 @@ class CurrencyInput extends Component {
         let selectionEnd = Math.min(node.selectionEnd, this.theInput.value.length - this.props.suffix.length);
         let selectionStart = Math.min(node.selectionStart, selectionEnd);
         //console.log("normal", selectionStart, selectionEnd);
-        node.setSelectionRange(selectionStart, selectionEnd);
+      this.props.selectAllOnFocus && node.setSelectionRange(selectionStart, selectionEnd);
 
     }
 
@@ -173,7 +173,7 @@ class CurrencyInput extends Component {
             selectionStart = selectionEnd;
         }
 
-        node.setSelectionRange(selectionStart, selectionEnd);
+        this.props.selectAllOnFocus && node.setSelectionRange(selectionStart, selectionEnd);
         this.inputSelectionStart = selectionStart;
         this.inputSelectionEnd = selectionEnd;
     }
