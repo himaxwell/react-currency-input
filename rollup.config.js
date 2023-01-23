@@ -13,9 +13,19 @@ const config = {
     input: './src/index.js',
     name: 'react-currency-input',
     sourcemap: true,
+    external: [
+      'react',
+      'react-dom',
+      'prop-types'
+    ],
     output: {
-        file,
-        format,
+      file,
+      format,
+      globals: {
+        'react': 'React',
+        'react-dom': 'ReactDOM',
+        'prop-types': 'PropTypes'
+      },
     },
     plugins: [
         peerDeps(),
